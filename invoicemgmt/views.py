@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import InvoiceForm, InvoiceSearchForm, InvoiceUpdateForm
 from .models import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def add_invoice(request):
     form = InvoiceForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Successfully Saved')
         return redirect('/list_invoice')
     context = {
         "form": form,
