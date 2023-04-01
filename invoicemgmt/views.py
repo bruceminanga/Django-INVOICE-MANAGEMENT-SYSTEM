@@ -60,3 +60,11 @@ def update_invoice(request, pk):
         'form': form
     }
     return render(request, 'add_invoice.html', context)
+
+
+def delete_invoice(request, pk):
+    queryset = Invoice.objects.get(id=pk)
+    if request.method == 'POST':
+        queryset.delete()
+        return redirect('/list_invoice')
+    return render(request, 'delete_invoice.html')

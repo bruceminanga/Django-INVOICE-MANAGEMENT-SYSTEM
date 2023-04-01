@@ -20,6 +20,7 @@
           <th>CUSTOMER NAME</th>
           <th>INVOICE NUMBER</th>
           <th>AMOUNT</th>
+          <th>DELETE</th>
         </tr>
       </thead>
       {% for instance in queryset %}
@@ -31,6 +32,7 @@
         </td>
         <td>{{instance.invoice_number}}</td>
         <td>{{instance.total}}</td>
+        <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
       </tr>
       {% endfor %}
     </table>
