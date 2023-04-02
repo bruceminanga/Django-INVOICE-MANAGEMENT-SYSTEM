@@ -14,17 +14,17 @@ class InvoiceForm(forms.ModelForm):
                   'total', 'paid', 'invoice_type'
                   ]
 
-        def clean_invoice_number(self):
-            invoice_number = self.cleaned_data.get('invoice_number')
-            if not invoice_number:
-                raise forms.ValidationError('This field is required')
-            return invoice_number
+    def clean_invoice_number(self):
+        invoice_number = self.cleaned_data.get('invoice_number')
+        if not invoice_number:
+            raise forms.ValidationError('This field is required')
+        return invoice_number
 
-        def clean_name(self):
-            name = self.cleaned_data.get('name')
-            if not name:
-                raise forms.ValidationError('This field is required')
-            return name
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if not name:
+            raise forms.ValidationError('This field is required')
+        return name
 
 
 class InvoiceSearchForm(forms.ModelForm):

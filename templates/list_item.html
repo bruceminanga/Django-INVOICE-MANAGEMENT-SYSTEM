@@ -1,40 +1,40 @@
-{% load static %}{% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>List of Invoices</title>
-    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" />
-  </head>
-  <body>
-    {{title}} <br />
-    <form method="POST" action="">
-      {% csrf_token %} {{form|crispy}}
-      <input type="submit" value="Search" />
-    </form>
-    <br />
-    <table class="table">
-      <thead>
-        <tr>
-          <th>COUNT</th>
-          <th>DATE</th>
-          <th>CUSTOMER NAME</th>
-          <th>INVOICE NUMBER</th>
-          <th>AMOUNT</th>
-          <th>DELETE</th>
-        </tr>
-      </thead>
-      {% for instance in queryset %}
-      <tr>
-        <td>{{forloop.counter}}</td>
-        <td>{{instance.invoice_date}}</td>
-        <td>
-          <a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a>
-        </td>
-        <td>{{instance.invoice_number}}</td>
-        <td>{{instance.total}}</td>
-        <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
-      </tr>
-      {% endfor %}
-    </table>
-  </body>
-</html>
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block title %}Create an account{% endblock %}
+{%block content %}  {{title}} 
+{% if messages %}
+<ul class="messages">
+       {% for message in messages %}
+             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       {% endfor %}
+</ul>
+{% endif %}<br />
+
+<form method="POST" action="">
+  {% csrf_token %} 
+  {{ form | crispy}}
+  <input type="submit" value="Search" />
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th>COUNT</th>
+      <th>DATE</th>
+      <th>CUSTOMER NAME</th>
+      <th>INVOICE NUMBER</th>
+      <th>AMOUNT</th>
+      <th>DELETE</th>
+    </tr>
+  </thead>
+  {% for instance in queryset %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{instance.invoice_date}}</td>
+    <td>
+      <a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a>
+    </td>
+    <td>{{instance.invoice_number}}</td>
+    <td>{{instance.total}}</td>
+    <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
+  </tr>
+  {% endfor %}
+</table> {% endblock %}
