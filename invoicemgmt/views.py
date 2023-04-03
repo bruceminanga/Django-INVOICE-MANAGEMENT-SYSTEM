@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import InvoiceForm, InvoiceSearchForm, InvoiceUpdateForm
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def home(request):
     return render(request, "home.html", context)
 
 
+@login_required
 def add_invoice(request):
     form = InvoiceForm(request.POST or None)
     total_invoices = Invoice.objects.count()
@@ -31,6 +33,7 @@ def add_invoice(request):
     return render(request, "add_invoice.html", context)
 
 
+@login_required
 def list_invoice(request):
     title = 'List of Invoices'
     queryset = Invoice.objects.all()

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% load crispy_forms_tags %} {% block content %}
+{% extends 'navbar.html' %}{% load crispy_forms_tags %} {% block content %}
 <form method="post" action="">
   {% csrf_token %}
   <h1>Are you sure you want to delete?</h1>
