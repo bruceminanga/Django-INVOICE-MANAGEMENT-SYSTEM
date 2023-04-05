@@ -3,6 +3,7 @@ from .models import Invoice
 
 
 class InvoiceForm(forms.ModelForm):
+
     class Meta:
         model = Invoice
         fields = ['name', 'phone_number', 'invoice_date', 'invoice_number',
@@ -28,9 +29,11 @@ class InvoiceForm(forms.ModelForm):
 
 
 class InvoiceSearchForm(forms.ModelForm):
+    generate_invoice = forms.BooleanField(required=False)
+
     class Meta:
         model = Invoice
-        fields = ['invoice_number', 'name']
+        fields = ['invoice_number', 'name', 'generate_invoice']
 
 
 class InvoiceUpdateForm(forms.ModelForm):
