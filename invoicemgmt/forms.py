@@ -3,6 +3,8 @@ from .models import Invoice
 
 
 class InvoiceForm(forms.ModelForm):
+    invoice_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = Invoice
@@ -37,6 +39,9 @@ class InvoiceSearchForm(forms.ModelForm):
 
 
 class InvoiceUpdateForm(forms.ModelForm):
+    invoice_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}))
+
     class Meta:
         model = Invoice
         fields = ['name', 'phone_number', 'invoice_date', 'invoice_number',

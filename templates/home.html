@@ -1,11 +1,81 @@
 {% extends 'navbar.html' %}{% load crispy_forms_tags %} {% block content %}
-<h1>{{title}}</h1>
+<head>
+	<title>Invoice Management System</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+		}
+		header {
+			background-color: #0077cc;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		main {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			margin-bottom: 10px;
+		}
+		a {
+			color: #0077cc;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		footer {
+			background-color: #ddd;
+			padding: 10px;
+			text-align: center;
+			font-size: 14px;
+			color: #777;
+		}
+	</style>
+</head>
 
-<button class="btn btn-danger">Click Me</button>
+<body>
+	<header>
+		<h1>Invoice Management System</h1>
+	</header>
+	<main>
+		<p>Welcome to our Invoice Management System. Our system is designed to help you manage your invoices with ease.</p>
 
-<div class="row">
-  <div class="col-sm-6 myClass">test 1</div>
+    <h2>Features</h2>
+	<ul>
+		<li>Add, view, and delete invoices</li>
+		<li>Track invoice status and payment due dates</li>
+		<li>Generate reports on invoice history and payment status</li>
+		<li>Set up automatic payment reminders</li>
+	</ul>
+	
+	<h2>Benefits</h2>
+	<ul>
+		<li>Save time and reduce errors with automated invoice management</li>
+		<li>Improve cash flow with timely payment reminders</li>
+		<li>Get insights into your invoicing and payment history for better financial planning</li>
+		<li>Enhance customer relationships with timely and accurate invoicing</li>
+	</ul>
+	
+	<p>Contact us today to learn more about how our <a href="#">Invoice Management System</a> can benefit your business.</p>
+</main>
+<footer>
+	<p>&copy; 2023 Invoice Management System. All rights reserved.</p>
+</footer>
 
-  <div class="col-sm-6 myClass">test2</div>
-</div>
+</body>
+</html>
 {% endblock %}

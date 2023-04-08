@@ -9,6 +9,8 @@ django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 django-registration-redux = "*"
 reportlab = "*"
+django-bootstrap-datepicker-plus = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 

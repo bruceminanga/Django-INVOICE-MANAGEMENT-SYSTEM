@@ -1,4 +1,5 @@
-{% extends 'navbar.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'navbar.html' %} {% load crispy_forms_tags %} {% load widget_tweaks %}  {% block content %}
+
 <div class="myForm">
   <form method='POST' action=''>{% csrf_token %}
       <div class="row">
@@ -17,36 +18,23 @@
                   {{ form.line_one|as_crispy_field }}
                 </div>
                 <div class="form-group col-md-2">
-                  {{ form.line_one_quantity|as_crispy_field }}
+                  {{ form.line_one_quantity |add_class:'id_line_one_quantity'| as_crispy_field }}
                 </div>
                 <div class="form-group col-md-2">
-                  {{ form.line_one_unit_price|as_crispy_field }}
+                  {{ form.line_one_unit_price|add_class:'id_line_one_unit_price'|as_crispy_field}}
                 </div>
                 <div class="form-group col-md-2">
-                  {{ form.line_one_total_price|as_crispy_field }}
+                  {{ form.line_one_total_price| add_class:'id_line_one_total_price'|as_crispy_field}}
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  {{ form.line_two|as_crispy_field }}
-                </div>
-                <div class="form-group col-md-2">
-                  {{ form.line_two_quantity|as_crispy_field }}
-                </div>
-                <div class="form-group col-md-2">
-                  {{ form.line_two_unit_price|as_crispy_field }}
-                </div>
-                <div class="form-group col-md-2">
-                  {{ form.line_two_total_price|as_crispy_field }}
-                </div>
-              </div>
+              
               <div class="form-row">
                 <div class="form-group col-md-12">
                   {{ form.invoice_type|as_crispy_field }}
                 </div>
                 <div class="form-group col-md-12">
-                  {{ form.total|as_crispy_field }}
+                  {{ form.total|add_class:'id_total'|as_crispy_field }}
                 </div>
               </div>
 
@@ -58,5 +46,6 @@
   </form>
 </div><!-- End myform -->
 </div>
+
 
 {% endblock %}
